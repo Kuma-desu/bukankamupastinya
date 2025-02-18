@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Untuk Kamu ❤️</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-color: #ffebf0;
+            color: #d63384;
+            margin: 0;
+            padding: 20px;
+        }
+        h1 {
+            margin-top: 20px;
+            font-size: 2em;
+        }
+        p {
+            font-size: 1.2em;
+        }
+        img {
+            width: 60%;
+            max-width: 200px;
+            margin-top: 20px;
+        }
+        .btn {
+            background-color: #ff69b4;
+            color: white;
+            padding: 12px 20px;
+            border: none;
+            cursor: pointer;
+            margin-top: 20px;
+            font-size: 1em;
+            border-radius: 10px;
+            transition: 0.3s;
+        }
+        .btn:hover {
+            background-color: #d63384;
+        }
+        .popup {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+            width: 90%;
+            max-width: 400px;
+        }
+        .overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+        }
+        #musicContainer {
+            margin-top: 20px;
+        }
+        .music-frame {
+            width: 100%;
+            max-width: 560px;
+            height: auto;
+            aspect-ratio: 16 / 9; /* Menjaga aspek rasio */
+            display: none;
+            border: none;
+        }
+
+        /* Responsif untuk layar kecil */
+        @media (max-width: 600px) {
+            h1 {
+                font-size: 1.5em;
+            }
+            p {
+                font-size: 1em;
+            }
+            .btn {
+                font-size: 0.9em;
+                padding: 10px 15px;
+            }
+            .popup {
+                width: 95%;
+                padding: 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Hai Sayang ❤️</h1>
+    <p>Aku cuma mau bilang...</p>
+    
+    <button class="btn" onclick="showPopup()">Klik Aku</button>
+
+    <div class="overlay" id="overlay"></div>
+    <div class="popup" id="popup">
+        <h2>Tiba-tiba manggil sayang wkwk❤️</h2>
+        <p>sebenarnya aku binggung mau bilang apa karena kita baru-baru ini komunikasi ya gaa rada sering ataupun tiap hari, cuman maaf kalau buat kamu ga nyaman dan typing ku sedikit kayak bocil wkwk, Maaf dan Jangan lupa makan sama minum wkkw (nanti kalau lupa makann badan kmu lemes sama lupa minum nanti dehidrasi sama kesel hehe), btw nama aku Rifky. jadi namamu siapa ?</p>
+        <button class="btn" onclick="hidePopup()">Tutup</button>
+    </div>
+
+    <!-- Tombol untuk memainkan musik -->
+    <div id="musicContainer">
+        <button class="btn" onclick="toggleMusic()">Klik ini juga ya🎵 (sampe muncul musiknya wkkw)</button>
+        <iframe id="musicFrame" class="music-frame" src="https://www.youtube.com/embed/MHCsrKA9gh8?enablejsapi=1" allow="autoplay" allowfullscreen></iframe>
+    </div>
+
+    <script>
+        function showPopup() {
+            document.getElementById("popup").style.display = "block";
+            document.getElementById("overlay").style.display = "block";
+        }
+        function hidePopup() {
+            document.getElementById("popup").style.display = "none";
+            document.getElementById("overlay").style.display = "none";
+        }
+
+        function toggleMusic() {
+            var iframe = document.getElementById("musicFrame");
+            if (iframe.style.display === "none") {
+                iframe.style.display = "block";
+                iframe.src += "&autoplay=1"; // Memainkan musik setelah tombol ditekan
+            } else {
+                iframe.style.display = "none";
+                iframe.src = iframe.src.replace("&autoplay=1", ""); // Menghentikan musik
+            }
+        }
+    </script>
+
+</body>
+</html>
